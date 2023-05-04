@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
+import CardProgrammazione from "./CardProgrammazione";
 
-const ListaProgrammazione = () => {
+const Homepage = () => {
 
     const[programmazione, setProgrammazione] = useState();
 
@@ -22,7 +23,7 @@ const ListaProgrammazione = () => {
     useEffect(()=>{
         getProgrammazione()
     },[])
-    return ( <ul>{programmazione && programmazione.map((e)=>(<li>{e.film.titolo}-------{e.sala.numerosala}</li>))}</ul>)
+    return ( <div className="d-flex justify-content-center flex-wrap">{programmazione && programmazione.map((e)=>(<CardProgrammazione spettacolo={e}/>))}</div>)
 }
 
-export default ListaProgrammazione;
+export default Homepage;

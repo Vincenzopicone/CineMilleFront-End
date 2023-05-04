@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Link } from 'react-router-dom';
 
 function NavBar() {
   return (
@@ -17,8 +18,9 @@ function NavBar() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="#">Home</Nav.Link>
-            <Nav.Link href="#action2">Programmazione</Nav.Link>
+            <Link className='text-dark text-decoration-none me-2' to={'/'}>Programmazione</Link>
+            <Link className='text-dark text-decoration-none me-2' to={'/film'}>Film</Link>
+            <Link className='text-dark text-decoration-none me-2' to={'/sale'}>Sale</Link>
           </Nav>
           <Form className="d-flex">
             <Form.Control
