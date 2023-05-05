@@ -9,3 +9,22 @@
   background-size: cover;
 
 }
+
+.navBar {
+  background: radial-gradient(circle, rgba(214,216,230,1) 0%, rgba(70,67,67,1) 100%);
+  
+}
+
+.titleNavBar {
+  font-family: 'Rock Salt', cursive;
+  font-weight: bolder;
+  font-size: 3em;
+}
+
+.bodyBg {
+  background: radial-gradient(circle, rgba(214,216,230,1) 0%, rgba(70,67,67,1) 100%);
+}
+
+.footerBg {
+  background: radial-gradient(circle, rgba(214,216,230,1) 0%, rgba(70,67,67,1) 100%);
+}

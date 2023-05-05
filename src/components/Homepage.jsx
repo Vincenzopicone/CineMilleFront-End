@@ -21,7 +21,7 @@ const Homepage = () => {
   const getProgrammazione = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8080/programmazioni/data?start=2023-05-01&end=2023-05-08&sort=sala.numerosala,ASC`
+        `http://localhost:8080/programmazioni/data?start=2023-05-08&end=2023-05-16&sort=sala.numerosala,ASC`
       );
       if (response.ok) {
         const data = await response.json();
@@ -64,11 +64,9 @@ const Homepage = () => {
           </select>
         </div>
 
-        <Container className="d-flex justify-content-center flex-wrap p-3 bg-light">
-          <Row>
-          {programmazione &&
-            programmazione.map((e) => <CardProgrammazione spettacolo={e} />)}
-          </Row>
+        <Container className=" flex-wrap p-3 bg-light">
+            {programmazione &&
+              programmazione.map((e) => <CardProgrammazione spettacolo={e} />)}
         </Container>
       </div>
     </>

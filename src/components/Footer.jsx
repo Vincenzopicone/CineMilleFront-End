@@ -6,7 +6,7 @@ const Footer = () => {
   const date = new Date();
   const currentYear = date.getFullYear();
   return (
-    <footer className="bg-dark p-4 text-warning">
+    <footer className="footerBg p-4">
       <div className="d-flex justify-content-center align-items-center mb-3">
           <BiCopyright />
         <div className="ms-1">Vincenzo Picone</div>{" "}
@@ -15,7 +15,7 @@ const Footer = () => {
       <div className="d-flex justify-content-center align-items-center">
         <BsGithub />
         <Link
-          className="text-warning text-decoration-none mx-1"
+          className="text-dark text-decoration-none mx-1"
           to={"https://github.com/Vincenzopicone"}
         >
           {" "}
@@ -23,7 +23,7 @@ const Footer = () => {
         </Link>
         <BsLinkedin />
         <Link
-          className="text-warning text-decoration-none mx-1"
+          className="text-dark text-decoration-none mx-1"
           to={"https://www.linkedin.com/in/vincenzo-picone-1032811a4/"}
         >
           LinkedIn{" "}
