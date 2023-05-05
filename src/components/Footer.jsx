@@ -1,23 +1,29 @@
 import { BsLinkedin, BsGithub } from "react-icons/bs";
-import {BiCopyright} from "react-icons/bi";
+import { BiCopyright } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
   const date = new Date();
   const currentYear = date.getFullYear();
   return (
-    <footer className="bg-light p-3">
-      <div className="d-flex justify-content-center align-items-center"><p><BiCopyright/></p><p>Copyright Vincenzo Picone</p> <p className="fw-bold">{currentYear}</p> </div>
+    <footer className="bg-dark p-4 text-light">
+      <div className="d-flex justify-content-center align-items-center mb-3">
+          <BiCopyright />
+        <div className="ms-1">Copyright Vincenzo Picone</div>{" "}
+        <div className="fw-bold ms-2">{currentYear}</div>{" "}
+      </div>
       <div className="d-flex justify-content-center align-items-center">
-      <BsGithub />
+        <BsGithub />
         <Link
-          className="text-dark text-decoration-none mx-1"
+          className="text-light text-decoration-none mx-1"
           to={"https://github.com/Vincenzopicone"}
-        > GitHub{" - "}
+        >
+          {" "}
+          GitHub{" - "}
         </Link>
         <BsLinkedin />
         <Link
-          className="text-dark text-decoration-none mx-1"
+          className="text-light text-decoration-none mx-1"
           to={"https://www.linkedin.com/in/vincenzo-picone-1032811a4/"}
         >
           LinkedIn{" "}
