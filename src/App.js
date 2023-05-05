@@ -6,6 +6,7 @@ import Navbar from './components/Navbar.jsx';
 import Homepage from './components/Homepage.jsx';
 import Film from './components/Film.jsx';
 import Sale from './components/Sale.jsx';
+import Footer from './components/Footer.jsx';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/film" element={<Film/>}/>
         <Route path="/sale" element={<Sale/>}/>
       </Routes>
+      <Footer/>
       </BrowserRouter>
 
     </div>
