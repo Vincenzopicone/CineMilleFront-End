@@ -1,5 +1,11 @@
 .App {
   text-align: center;
-  height: 100vw;
+  font-family: 'Open Sans', sans-serif;
+
+}
+
+.cardProgrammazione {
+  background-image: url("./assets/filmstrip-4395109_1280.webp");
+  background-size: cover;
 
 }

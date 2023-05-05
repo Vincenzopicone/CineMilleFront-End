@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import CardProgrammazione from "./CardProgrammazione";
+import { Col, Container, Row } from "react-bootstrap";
 
 const Homepage = () => {
   const [programmazione, setProgrammazione] = useState();
@@ -20,7 +21,7 @@ const Homepage = () => {
   const getProgrammazione = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8080/programmazioni/data?start=${startDate}&end=${endDate}&sort=sala.numerosala,ASC`
+        `http://localhost:8080/programmazioni/data?start=2023-05-01&end=2023-05-08&sort=sala.numerosala,ASC`
       );
       if (response.ok) {
         const data = await response.json();
@@ -43,13 +44,13 @@ const Homepage = () => {
 
   return (
     <>
-      <div className="p-3">
+      <div className="p-3 bg-light">
         {/* <div className='p-2' >
       <label htmlFor="date-input">Seleziona una data:</label>
       <input type="date" id="date-input"  onChange={handleStartDateChange} />
     </div> */}
 
-        <div className="d-flex justify-content-center">
+        <div className="d-flex justify-content-center ">
           <select
             className="form-select text-center w-50"
             aria-label="Default select example"
@@ -63,10 +64,12 @@ const Homepage = () => {
           </select>
         </div>
 
-        <div className="d-flex justify-content-center flex-wrap p-3 bg-light">
+        <Container className="d-flex justify-content-center flex-wrap p-3 bg-light">
+          <Row>
           {programmazione &&
             programmazione.map((e) => <CardProgrammazione spettacolo={e} />)}
-        </div>
+          </Row>
+        </Container>
       </div>
     </>
   );

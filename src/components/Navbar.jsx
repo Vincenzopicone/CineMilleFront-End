@@ -10,7 +10,7 @@ function NavBar() {
   return (
     <Navbar bg="dark" expand="lg" >
       <Container fluid >
-        <Navbar.Brand href="/" className='text-light fw-bold'><span><BsFilm/></span> CineMille</Navbar.Brand>
+        <Navbar.Brand href="/" className='text-warning fw-bold'><span><BsFilm/></span> CineMille</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -19,8 +19,8 @@ function NavBar() {
             navbarScroll
           >
             {/* <Link className='text-light text-decoration-none me-2' to={'/'}>Programmazione</Link> */}
-            <Link className='text-light text-decoration-none me-2' to={'/film'}>Film</Link>
-            <Link className='text-light text-decoration-none me-2' to={'/sale'}>Sale</Link>
+            <Link className='text-warning text-decoration-none me-2' to={'/film'}>Film</Link>
+            <Link className='text-warning text-decoration-none me-2' to={'/sale'}>Sale</Link>
           </Nav>
           {/* <Form className="d-flex">
             <Form.Control
