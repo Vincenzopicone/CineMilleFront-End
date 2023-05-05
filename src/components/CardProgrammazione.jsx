@@ -26,6 +26,16 @@ const CardProgrammazione = (props) => {
             <div>{props.spettacolo.sala.capienza}</div>
           </div>
         </div>
+        <div className="d-flex justify-content-between w-100">
+          <div className="d-flex justify-content-center flex-column fw-bold col-6 text-light bg-success">
+            <div>DAL</div>
+            <div>{props.spettacolo.datauscita}</div>
+          </div>
+          <div className="d-flex justify-content-center flex-column fw-bold text-light col-6 bg-danger">
+            <div>AL</div>
+            <div>{props.spettacolo.datafineprogrammazione}</div>
+          </div>
+        </div>
       </section>
     </section>
   );
