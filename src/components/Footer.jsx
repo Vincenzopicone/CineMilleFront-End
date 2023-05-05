@@ -9,7 +9,7 @@ const Footer = () => {
     <footer className="bg-dark p-4 text-light">
       <div className="d-flex justify-content-center align-items-center mb-3">
           <BiCopyright />
-        <div className="ms-1">Copyright Vincenzo Picone</div>{" "}
+        <div className="ms-1">Vincenzo Picone</div>{" "}
         <div className="fw-bold ms-2">{currentYear}</div>{" "}
       </div>
       <div className="d-flex justify-content-center align-items-center">

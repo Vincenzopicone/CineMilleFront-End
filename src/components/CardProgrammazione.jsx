@@ -10,7 +10,6 @@ const CardProgrammazione = (props) => {
         <div className="d-flex justify-content-between">
           <div className="d-flex flex-column justify-content-center p-3">
             <h3>{props.spettacolo.film.titolo}</h3>
-            <h6>{props.spettacolo.film.descrizione}</h6>
           </div>
           <div >
             <img src="http://placekitten.com/100/100" />
@@ -26,6 +25,7 @@ const CardProgrammazione = (props) => {
             <div>{props.spettacolo.sala.capienza}</div>
           </div>
         </div>
+        <div className='bg-warning'>IN PROGRAMMAZIONE</div>
         <div className="d-flex justify-content-between w-100">
           <div className="d-flex justify-content-center flex-column fw-bold col-6 text-light bg-success">
             <div>DAL</div>
