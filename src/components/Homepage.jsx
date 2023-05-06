@@ -1,74 +1,87 @@
 import { useEffect, useState } from "react";
 import CardProgrammazione from "./CardProgrammazione";
-import { Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
+import moment from "moment";
 
 const Homepage = () => {
   const [programmazione, setProgrammazione] = useState();
+  const [selez1, setSelez1] = useState (true);
+  const [selez2, setSelez2] = useState (false);
+  const [selez3, setSelez3] = useState (false);
 
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
+  const [startDate, setStartDate] = useState(
+    moment().clone().day(1).format("yyyy-MM-DD")
+  );
+  const [endDate, setEndDate] = useState(
+    moment().clone().day(1).add(7, "days").format("yyyy-MM-DD")
+  );
 
-  function handleStartDateChange(event) {
-    const newStartDate = event.target.value;
-    setStartDate(newStartDate);
-    const newEndDate = new Date(
-      new Date(newStartDate).getTime() + 7 * 24 * 60 * 60 * 1000
-    )
-      .toISOString()
-      .substring(0, 10);
-    setEndDate(newEndDate);
-  }
+  const settimanaCorrente = () => {
+    setStartDate(moment().clone().day(1).format("yyyy-MM-DD"));
+    setEndDate(moment().clone().day(1).add(7, "days").format("yyyy-MM-DD"));
+    setSelez1(true);
+    setSelez2(false);
+    setSelez3(false);
+
+  };
+
+  const skipUnaSettimana = () => {
+    setStartDate(moment().clone().day(1).add(7, "days").format("yyyy-MM-DD"));
+    setEndDate(moment().clone().day(1).add(15, "days").format("yyyy-MM-DD"));
+    setSelez1(false);
+    setSelez2(true);
+    setSelez3(false);
+
+  };
+  const skipDueSettimane = () => {
+    setStartDate(moment().clone().day(1).add(16, "days").format("yyyy-MM-DD"));
+    setEndDate(moment().clone().day(1).add(24, "days").format("yyyy-MM-DD"));
+    setSelez1(false);
+    setSelez2(false);
+    setSelez3(true);
+
+  };
+
   const getProgrammazione = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8080/programmazioni/data?start=2023-05-08&end=2023-05-16&sort=sala.numerosala,ASC`
+        `http://localhost:8080/programmazioni/data?start=${startDate}&end=${endDate}&sort=sala.numerosala,ASC`
       );
       if (response.ok) {
         const data = await response.json();
         setProgrammazione(data.content);
+        
       } else {
       }
     } catch (error) {}
   };
   useEffect(() => {
-    const today = new Date().toISOString().substring(0, 10);
-    setStartDate(today);
-    const newEndDate = new Date(
-      new Date(today).getTime() + 7 * 24 * 60 * 60 * 1000
-    )
-      .toISOString()
-      .substring(0, 10);
-    setEndDate(newEndDate);
     getProgrammazione();
   }, [startDate]);
 
   return (
     <>
-      <div className="p-3 bg-light">
-        {/* <div className='p-2' >
-      <label htmlFor="date-input">Seleziona una data:</label>
-      <input type="date" id="date-input"  onChange={handleStartDateChange} />
-    </div> */}
-
-        <div className="d-flex justify-content-center ">
-          <select
-            className="form-select text-center w-50"
-            aria-label="Default select example"
-          >
-            <option selected>Seleziona la settimana di programmazione</option>
-            <option value="1">
-              {startDate} - {endDate}
-            </option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
-        </div>
-
-        <Container className=" flex-wrap p-3 bg-light">
-            {programmazione &&
-              programmazione.map((e) => <CardProgrammazione spettacolo={e} />)}
-        </Container>
-      </div>
+      <Container className=" flex-wrap py-3 px-1 bg-light">
+        <Row className="d-flex justify-content-center my-2">
+          <Col xs={3}>
+            <Button onClick={() => settimanaCorrente()} variant={selez1 === false ? "dark fw-bold rounded-pill" : "warning fw-bold rounded-pill"} >
+              SETTIMANA CORRENTE
+            </Button>
+          </Col>
+          <Col xs={3}>
+            <Button onClick={() => skipUnaSettimana()} variant={selez2 === false ? "dark fw-bold rounded-pill" : "warning fw-bold rounded-pill"}>
+              DAL {moment().clone().day(1).add(8, "days").format("DD-MM-yyyy")}
+            </Button>
+          </Col>
+          <Col xs={3}>
+            <Button onClick={() => skipDueSettimane()} variant={selez3 === false ? "dark fw-bold rounded-pill" : "warning fw-bold rounded-pill"}>
+              DAL {moment().clone().day(1).add(16, "days").format("DD-MM-yyyy")}
+            </Button>
+          </Col>
+        </Row>
+        {programmazione &&
+          programmazione.map((e) => <CardProgrammazione spettacolo={e} />)}
+      </Container>
     </>
   );
 };

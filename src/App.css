@@ -5,8 +5,8 @@
 }
 
 .cardProgrammazione {
-  background-image: url("./assets/filmstrip-4395109_1280.webp");
-  background-size: cover;
+  border-bottom: 1px solid lightgray;
+ 
 
 }
 
@@ -23,6 +23,11 @@
 
 .bodyBg {
   background: radial-gradient(circle, rgba(214,216,230,1) 0%, rgba(70,67,67,1) 100%);
+}
+
+.titleFooter {
+  font-family: 'Rock Salt', cursive;
+  font-weight: bolder;
 }
 
 .footerBg {
