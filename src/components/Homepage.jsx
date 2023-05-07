@@ -10,15 +10,15 @@ const Homepage = () => {
   const [selez3, setSelez3] = useState (false);
 
   const [startDate, setStartDate] = useState(
-    moment().clone().day(1).format("yyyy-MM-DD")
+    moment().clone().day(0).format("yyyy-MM-DD")
   );
   const [endDate, setEndDate] = useState(
-    moment().clone().day(1).add(7, "days").format("yyyy-MM-DD")
+    moment().clone().day(0).add(7, "days").format("yyyy-MM-DD")
   );
 
   const settimanaCorrente = () => {
-    setStartDate(moment().clone().day(1).format("yyyy-MM-DD"));
-    setEndDate(moment().clone().day(1).add(7, "days").format("yyyy-MM-DD"));
+    setStartDate(moment().clone().day(0).format("yyyy-MM-DD"));
+    setEndDate(moment().clone().day(0).add(7, "days").format("yyyy-MM-DD"));
     setSelez1(true);
     setSelez2(false);
     setSelez3(false);
@@ -26,16 +26,16 @@ const Homepage = () => {
   };
 
   const skipUnaSettimana = () => {
-    setStartDate(moment().clone().day(1).add(7, "days").format("yyyy-MM-DD"));
-    setEndDate(moment().clone().day(1).add(15, "days").format("yyyy-MM-DD"));
+    setStartDate(moment().clone().day(0).add(7, "days").format("yyyy-MM-DD"));
+    setEndDate(moment().clone().day(0).add(15, "days").format("yyyy-MM-DD"));
     setSelez1(false);
     setSelez2(true);
     setSelez3(false);
 
   };
   const skipDueSettimane = () => {
-    setStartDate(moment().clone().day(1).add(16, "days").format("yyyy-MM-DD"));
-    setEndDate(moment().clone().day(1).add(24, "days").format("yyyy-MM-DD"));
+    setStartDate(moment().clone().day(0).add(16, "days").format("yyyy-MM-DD"));
+    setEndDate(moment().clone().day(0).add(24, "days").format("yyyy-MM-DD"));
     setSelez1(false);
     setSelez2(false);
     setSelez3(true);
@@ -70,12 +70,12 @@ const Homepage = () => {
           </Col>
           <Col xs={3}>
             <Button onClick={() => skipUnaSettimana()} variant={selez2 === false ? "dark fw-bold rounded-pill" : "warning fw-bold rounded-pill"}>
-              DAL {moment().clone().day(1).add(8, "days").format("DD-MM-yyyy")}
+              DAL {moment().clone().day(0).add(7, "days").format("DD-MM-yyyy")}
             </Button>
           </Col>
           <Col xs={3}>
             <Button onClick={() => skipDueSettimane()} variant={selez3 === false ? "dark fw-bold rounded-pill" : "warning fw-bold rounded-pill"}>
-              DAL {moment().clone().day(1).add(16, "days").format("DD-MM-yyyy")}
+              DAL {moment().clone().day(0).add(15, "days").format("DD-MM-yyyy")}
             </Button>
           </Col>
         </Row>
