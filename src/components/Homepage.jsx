@@ -13,12 +13,12 @@ const Homepage = () => {
     moment().clone().day(0).format("yyyy-MM-DD")
   );
   const [endDate, setEndDate] = useState(
-    moment().clone().day(0).add(7, "days").format("yyyy-MM-DD")
+    moment().clone().day(0).add(6, "days").format("yyyy-MM-DD")
   );
 
   const settimanaCorrente = () => {
     setStartDate(moment().clone().day(0).format("yyyy-MM-DD"));
-    setEndDate(moment().clone().day(0).add(7, "days").format("yyyy-MM-DD"));
+    setEndDate(moment().clone().day(0).add(6, "days").format("yyyy-MM-DD"));
     setSelez1(true);
     setSelez2(false);
     setSelez3(false);
@@ -27,15 +27,15 @@ const Homepage = () => {
 
   const skipUnaSettimana = () => {
     setStartDate(moment().clone().day(0).add(7, "days").format("yyyy-MM-DD"));
-    setEndDate(moment().clone().day(0).add(15, "days").format("yyyy-MM-DD"));
+    setEndDate(moment().clone().day(0).add(13, "days").format("yyyy-MM-DD"));
     setSelez1(false);
     setSelez2(true);
     setSelez3(false);
 
   };
   const skipDueSettimane = () => {
-    setStartDate(moment().clone().day(0).add(16, "days").format("yyyy-MM-DD"));
-    setEndDate(moment().clone().day(0).add(24, "days").format("yyyy-MM-DD"));
+    setStartDate(moment().clone().day(0).add(14, "days").format("yyyy-MM-DD"));
+    setEndDate(moment().clone().day(0).add(20, "days").format("yyyy-MM-DD"));
     setSelez1(false);
     setSelez2(false);
     setSelez3(true);
