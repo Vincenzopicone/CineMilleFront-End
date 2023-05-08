@@ -55,6 +55,11 @@ const CardProgrammazione = (props) => {
             )}
           </h3>
         </Col>
+        <Col xs={1} className="d-flex flex-column align-items-center justify-content-center">
+        <Button variant="outline-secondary rounded-pill mb-2"><strong>{props.spettacolo.primo}</strong></Button>
+        <Button variant="outline-secondary rounded-pill mb-2"><strong>{props.spettacolo.secondo}</strong></Button>
+        <Button variant="outline-secondary rounded-pill mb-2"><strong>{props.spettacolo.terzo}</strong></Button>
+        </Col>
       </Row>
     </>
   );

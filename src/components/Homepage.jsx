@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import CardProgrammazione from "./CardProgrammazione";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Alert, Button, Col, Container, Row, Spinner } from "react-bootstrap";
 import moment from "moment";
 
 const Homepage = () => {
   const [programmazione, setProgrammazione] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
   const [selez1, setSelez1] = useState (true);
   const [selez2, setSelez2] = useState (false);
   const [selez3, setSelez3] = useState (false);
@@ -50,10 +52,16 @@ const Homepage = () => {
       if (response.ok) {
         const data = await response.json();
         setProgrammazione(data.content);
+        setIsLoading(false);
         
       } else {
+        setIsError(true);
+        setIsLoading(false);
       }
-    } catch (error) {}
+    } catch (error) {
+      setIsError(true);
+      setIsLoading(false);
+    }
   };
   useEffect(() => {
     getProgrammazione();
@@ -79,6 +87,10 @@ const Homepage = () => {
             </Button>
           </Col>
         </Row>
+        {isLoading && <Spinner animation="border" variant="secondary" />}
+          {isError && (
+            <Alert variant="danger">Errore nel caricamento della pagina</Alert>
+          )}
         {programmazione &&
           programmazione.map((e) => <CardProgrammazione key={e.id} spettacolo={e} />)}
       </Container>
