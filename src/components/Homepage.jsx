@@ -75,7 +75,7 @@ const Homepage = () => {
           </Col>
           <Col xs={3}>
             <Button onClick={() => skipDueSettimane()} variant={selez3 === false ? "dark fw-bold rounded-pill" : "warning fw-bold rounded-pill"}>
-              DAL {moment().clone().day(0).add(15, "days").format("DD-MM-yyyy")}
+              DAL {moment().clone().day(0).add(14, "days").format("DD-MM-yyyy")}
             </Button>
           </Col>
         </Row>
