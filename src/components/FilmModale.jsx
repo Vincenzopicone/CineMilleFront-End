@@ -13,19 +13,16 @@ function FilmModal(props) {
           if(response.ok) {
               const data = await response.json();
               setFilm(data);
-              console.log("Data Modale: ",data);
           } else {
 
           }
       } catch (error) {
           console.log(error);
       }
-
   }
-
   useEffect(() => {
-      getFilm();
-  }, [film])
+      getFilm()
+  }, [])
 
   return (
     <Modal

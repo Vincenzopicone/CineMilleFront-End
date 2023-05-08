@@ -80,7 +80,7 @@ const Homepage = () => {
           </Col>
         </Row>
         {programmazione &&
-          programmazione.map((e) => <CardProgrammazione spettacolo={e} />)}
+          programmazione.map((e) => <CardProgrammazione key={e.id} spettacolo={e} />)}
       </Container>
     </>
   );

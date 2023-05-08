@@ -2,6 +2,7 @@ import { useState } from "react";
 import PlaceHolder from "../assets/MoviePlaceHolder.png";
 import { Button, Col, Row } from "react-bootstrap";
 import FilmModale from "./FilmModale";
+
 const CardProgrammazione = (props) => {
   const [modalShow, setModalShow] = useState(false);
   return (
@@ -36,6 +37,7 @@ const CardProgrammazione = (props) => {
             Scheda del film
           </Button>
           <FilmModale
+          key={props.spettacolo.id}
             show={modalShow}
             onHide={() => setModalShow(false)}
             id={props.spettacolo.film.id}
@@ -47,7 +49,7 @@ const CardProgrammazione = (props) => {
           </h4>
           <h3>
             {props.spettacolo.sala.tiposala === "IMAX" && (
-              <span class="badge text-bg-danger">
+              <span className="badge text-bg-danger">
                 {props.spettacolo.sala.tiposala}
               </span>
             )}
